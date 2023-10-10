@@ -1,9 +1,9 @@
 import '@mantine/core/styles.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { MantineProvider, Text } from '@mantine/core';
+import { Button, Group, MantineProvider, Text, Title } from '@mantine/core';
 import { theme } from '../theme';
-import { AppShell, Burger, Group, Skeleton, rem } from '@mantine/core';
+import { AppShell, Burger, Grid, Skeleton, rem } from '@mantine/core';
 import { useHeadroom } from '@mantine/hooks';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -15,7 +15,20 @@ export default function App({ Component, pageProps }: AppProps) {
         header={{ height: 60, collapsed: !pinned, offset: false }}
         padding="md"
       >
-        <AppShell.Header>Cargo App</AppShell.Header>
+        <AppShell.Header>
+          <Grid justify="flex-start" align="stretch">
+            <Grid.Col span={7} style={{ minHeight: rem(80) }}>
+              <Title order={2}>Cargo App</Title>
+            </Grid.Col>
+            <Group>
+              <Button variant="subtle">Home</Button>
+              <Button variant="subtle">Products</Button>
+              <Button variant="subtle">Company</Button>
+              <Button variant="subtle">Resources</Button>
+              <Button variant="filled">Contact Us</Button>
+            </Group>
+          </Grid>
+        </AppShell.Header>
         {/* <AppShell.Navbar>Navbar</AppShell.Navbar> */}
         <AppShell.Main pt={`calc(${rem(60)} + var(--mantine-spacing-md))`}>
           <Head>
